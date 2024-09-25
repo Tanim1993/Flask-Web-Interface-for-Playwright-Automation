@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automation Test Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to the Automation Test Dashboard</h1>
+            <p>Your one-stop solution for running and viewing test results.</p>
+        </header>
+        
+        <main>
+            <div class="content">
+                <h2 style="text-align: center;">Run Your Automation Tests</h2>
+
+                <!-- Removed margin-left style -->
+                <button id="run-tests">Run Tests</button>
+                <div id="status"></div>
+                <iframe id="report-frame" style="display: none; width: 80vw; height: 80vh; border: none;"></iframe>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; Reddot QA:2024 Automation Testing Inc. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('run-tests').addEventListener('click', function() {
+            document.getElementById('status').innerHTML = "<p>Running tests, please wait...</p><div class='loader'></div>";
+            
+            fetch('/run-tests', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById('status').innerHTML = "<p>Error: " + data.error + "</p>";
+                    } else {
+                        document.getElementById('status').innerHTML = "<p>Tests completed successfully.</p>";
+                        document.getElementById('report-frame').style.display = 'block';
+                        document.getElementById('report-frame').src = '/allure-report/index.html';
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('status').innerHTML = "<p>Error: " + error.message + "</p>";
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","8589","test_bank_cashout[chromium]","","Sun Sep 22 17:52:58 BDT 2024","passed","Sun Sep 22 17:53:06 BDT 2024","","test_mfs_admin_portal","",""
+"","9036","test_bank_cashout_approve[chromium]","","Sun Sep 22 17:53:10 BDT 2024","passed","Sun Sep 22 17:53:19 BDT 2024","","test_mfs_admin_portal","",""
+"","8251","test_approve_cashin[chromium]","","Sun Sep 22 17:52:45 BDT 2024","passed","Sun Sep 22 17:52:53 BDT 2024","","test_mfs_admin_portal","",""
+"","5792","test_cashin_to_distributor[chromium]","","Sun Sep 22 17:52:35 BDT 2024","passed","Sun Sep 22 17:52:41 BDT 2024","","test_mfs_admin_portal","",""
